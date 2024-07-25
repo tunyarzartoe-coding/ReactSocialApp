@@ -5,15 +5,19 @@ const Header = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
       <div class="container text-white">
-        <Link class="navbar-brand logo"  to="/">
-          {/* <img
-            src="/docs/5.0/assets/brand/bootstrap-logo.svg"
-            alt=""
-            width="30"
-            height="24"
-            class="d-inline-block align-text-top"
-          /> */}
-          <span>Social App</span>
+        <Link class="navbar-brand logo d-flex" to="/">
+          <div className="">
+            <img
+              src="/network.png"
+              alt="logo"
+              width="30"
+              height="32"
+              class="d-inline-block align-text-top p-1 "
+            />
+          </div>
+          <div className="px-1">
+            <span>Social App</span>
+          </div>
         </Link>
         <button
           class="navbar-toggler"
