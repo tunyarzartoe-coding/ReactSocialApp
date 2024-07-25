@@ -1,13 +1,47 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@1,200;1,300;1,600&display=swap'); */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #c6c6c6;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: linear-gradient(-60deg, rgb(16, 24, 65), rgb(32, 43, 96)) ;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+div {
+  scrollbar-color: #c6c6c6 transparent !important;
+  scrollbar-width: thin !important;
+  scrollbar-arrow-color: transparent !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.navbar{
+  background: linear-gradient(-60deg, rgb(16, 24, 65), rgb(32, 43, 96)) ;
+  border-bottom: 1px solid #ffffff20;
+}
+.footer {
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  background: linear-gradient(-60deg, rgb(16, 24, 65), rgb(32, 43, 96));
+  border-top: 1px solid #ffffff20;
+}
+
+.footer-text,p,span {
+  color: #c6c6c6;
 }

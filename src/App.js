@@ -1,8 +1,11 @@
+import { Routes,Route } from "react-router";
+import Layout from "./layout/Layout";
+
 function App() {
   return (
-    <div className="App">
-      hello world
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}></Route>
+    </Routes>
   );
 }
 
