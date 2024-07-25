@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
       <div class="container text-white">
         <Link class="navbar-brand logo" href="#">
           {/* <img
@@ -13,7 +13,7 @@ const Header = () => {
             height="24"
             class="d-inline-block align-text-top"
           /> */}
-          <span>Social App</span>
+          <p>Social App</p>
         </Link>
         <button
           class="navbar-toggler"
@@ -24,18 +24,18 @@ const Header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <p class="navbar-toggler-icon"></p>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <Link class="nav-link active" aria-current="page" to="/">
-                <span>Home</span>
+                <p>Home</p>
               </Link>
             </li>
             <li class="nav-item">
               <Link class="nav-link" to="/post">
-                <span>Post</span>
+                <p>Post</p>
               </Link>
             </li>
           </ul>

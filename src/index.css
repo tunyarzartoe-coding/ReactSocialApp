@@ -45,3 +45,58 @@ code {
 .footer-text,p,span {
   color: #c6c6c6;
 }
+
+p {
+  margin-bottom: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  height: 200px;
+}
+
+.postCredit {
+  font-size: 1rem;
+}
+
+.postCredit a, 
+.postCredit a:visited {
+  margin-right: 0.5rem;
+  color: black;
+}
+
+.postCredit a:hover, 
+.postCredit a:focus {
+  color: hsla(0, 0%, 0%, 0.75);
+}
+
+.excerpt {
+  font-style: italic;
+}
+
+.reactionButton {
+  margin: 0 0.25em 0 0;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+}
+
+.deleteButton {
+  background-color: palevioletred;
+  color: white;
+}
+.posts{
+    background: linear-gradient(65deg,#101841,#202b60);
+    box-shadow: "0px 5px 10px rgba(0,0,0,0.25)";
+    padding: "15px";
+    border-radius: "5px";
+    margin-bottom: 8;
+    /* color: invertDark(theme), */
+    cursor: "pointer";
+    color : white;
+}
