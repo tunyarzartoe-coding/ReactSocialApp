@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
       <div class="container text-white">
-        <Link class="navbar-brand logo" href="#">
+        <Link class="navbar-brand logo"  to="/">
           {/* <img
             src="/docs/5.0/assets/brand/bootstrap-logo.svg"
             alt=""
@@ -13,7 +13,7 @@ const Header = () => {
             height="24"
             class="d-inline-block align-text-top"
           /> */}
-          <p>Social App</p>
+          <span>Social App</span>
         </Link>
         <button
           class="navbar-toggler"
@@ -30,12 +30,12 @@ const Header = () => {
           <ul class="navbar-nav">
             <li class="nav-item">
               <Link class="nav-link active" aria-current="page" to="/">
-                <p>Home</p>
+                <span>Home</span>
               </Link>
             </li>
             <li class="nav-item">
               <Link class="nav-link" to="/post">
-                <p>Post</p>
+                <span>Post</span>
               </Link>
             </li>
           </ul>

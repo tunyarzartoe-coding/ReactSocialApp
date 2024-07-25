@@ -16,6 +16,28 @@ export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
   return [...response.data];
 });
 
+export const updatePost = createAsyncThunk(
+  "posts/updatePost",
+  async (initialPost) => {
+    const { id } = initialPost
+    const response = await axios.put(`${GET_URL}/${id}`, initialPost);
+    return response.data;
+  }
+);
+
+export const deletePost = createAsyncThunk(
+  "posts/deletePost",
+  async (initialPost) => {
+    const { id } = initialPost
+    const response = await axios.delete(`${GET_URL}/${id}`);
+
+    if(response.status === 200)
+     return initialPost
+    else
+     return response.status
+  }
+);
+
 const postSlice = createSlice({
   name: "posts",
   initialState,
@@ -56,7 +78,28 @@ const postSlice = createSlice({
       .addCase(getAllPosts.rejected, (state, action) => {
         state.status = "fail";
         state.error = action.error.message;
-      });
+      })
+      .addCase(updatePost.fulfilled,(state,action) => {
+        if(!action.payload?.id){
+           console.log('Could not complete update!')
+           console.log(action.payload)
+           return;
+        }
+        action.payload.date = new Date().toISOString()
+
+        const posts = state.posts.filter(post => post.id !== action.payload.id)
+        state.posts = [...posts,action.payload]
+      })
+      .addCase(deletePost.fulfilled,(state,action) => {
+        if(!action.payload?.id){
+          console.log('Could not complete delete!')
+          console.log(action.payload)
+          return;
+       }
+
+       const posts = state.posts.filter(post => post.id !== action.payload.id)
+       state.posts = posts
+      })      
   },
 });
 

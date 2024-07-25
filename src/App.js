@@ -2,9 +2,12 @@ import { Routes, Route } from "react-router";
 import Layout from "./layout/Layout";
 import PostContainer from "./containers/post/PostContainer";
 import SinglePost from "./components/posts/SinglePost";
+import { ToastContainer } from "react-toastify";
+
 
 function App() {
   return (
+    <>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<PostContainer />} />
@@ -13,6 +16,8 @@ function App() {
         </Route>
       </Route>
     </Routes>
+    <ToastContainer/>
+    </>
   );
 }
 
