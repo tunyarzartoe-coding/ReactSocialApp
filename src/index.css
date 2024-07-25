@@ -7,10 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(-60deg, rgb(16, 24, 65), rgb(32, 43, 96)) ;
   color: #c6c6c6;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background: linear-gradient(-60deg, rgb(16, 24, 65), rgb(32, 43, 96)) ;
 }
 *,
 *::before,
