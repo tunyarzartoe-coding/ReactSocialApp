@@ -9,8 +9,10 @@ import { store } from "./store/store";
 import "react-toastify/dist/ReactToastify.css";
 
 import { getAllPosts } from "./components/posts/postSlice";
+import {  getAllUsers } from "./components/users/userSlice";
 
 store.dispatch(getAllPosts())
+store.dispatch(getAllUsers())
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
