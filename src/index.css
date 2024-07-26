@@ -100,3 +100,7 @@ textarea {
     cursor: "pointer";
     color : white;
 }
+.delete-modal{
+  background: linear-gradient(65deg,#101841,#202b60);
+  box-shadow: "0px 5px 10px rgba(0,0,0,0.25)";
+}
