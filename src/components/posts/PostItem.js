@@ -33,11 +33,11 @@ const PostItem = ({ post }) => {
           <div className="card-header d-flex justify-content-between">
             <h3 className="text-white">{post.title}</h3>
             <button
-              className="btn btn-outline-danger h-25"
+              className="btn btn-outline-success h-25"
               data-bs-toggle="modal"
-              data-bs-target="#deleteModal"
+              data-bs-target="#addPostModal"
             >
-              <i className="bi bi-trash-fill"></i>
+              <i class="bi bi-plus"></i>{" "}
             </button>
           </div>
           <div className="card-body">
@@ -49,7 +49,16 @@ const PostItem = ({ post }) => {
               {/* <PostAuthor post={post} /> */}
               <TimeAgo date={post.date} />
             </div>
-            <ReactionButtons post={post} />
+            <div className="d-flex justify-content-between">
+              <ReactionButtons post={post} />
+              <button
+                className="btn btn-outline-danger h-25"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+              >
+                <i className="bi bi-trash-fill"></i>
+              </button>
+            </div>
           </div>
         </article>
       </div>

@@ -28,9 +28,9 @@ const Header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <p class="navbar-toggler-icon"></p>
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse " id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <Link class="nav-link active" aria-current="page" to="/">
