@@ -3,48 +3,32 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { deletePost } from "./postSlice";
 import { toast } from "react-toastify";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const DeletePostModal = ({ post, handleClose }) => {
+const DeletePostModal = ({ post, handleClose,show }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
-  const modalRef = useRef(null);
 
-  useEffect(() => {
-    const modal = new window.bootstrap.Modal(modalRef.current);
-    modal.show();
-
-    return () => {
-      modal.hide();
-    };
-  }, []);
 
   const handleDeletePost = async (event) => {
     event.preventDefault();
-    try {
       setAddRequestStatus("pending");
       await dispatch(deletePost(post.id)).unwrap();
       navigate("/post/post-table");
-      toast.success("Post deleted successfully!");
       handleClose();
-    } catch (error) {
-      console.error("Failed to delete the post", error);
-      toast.error("Failed to delete the post!");
-    } finally {
-      setAddRequestStatus("idle");
-    }
-  };
+      toast.success("Post deleted successfully!");
+    };
+    console.log("show==>",show)
 
   return (
     <div
-      className="modal fade show"
+      className="modal fade"
       id="deleteModal"
       tabIndex="-1"
       aria-labelledby="deleteModal"
-      aria-hidden="true"
-      style={{ display: "block" }}
+    //   aria-hidden="true"
+      aria-hidden={!show}
+
     >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content delete-modal">
@@ -56,7 +40,7 @@ const DeletePostModal = ({ post, handleClose }) => {
               type="button"
               className="btn btn-secondary"
               data-bs-dismiss="modal"
-              onClick={handleClose}
+              onClick={handleClose()}
             >
               Close
             </button>
@@ -64,7 +48,7 @@ const DeletePostModal = ({ post, handleClose }) => {
               type="button"
               className="btn btn-danger"
               onClick={handleDeletePost}
-              disabled={addRequestStatus === "pending"}
+              data-bs-dismiss={!show ?"modal":""}
             >
               Delete
             </button>

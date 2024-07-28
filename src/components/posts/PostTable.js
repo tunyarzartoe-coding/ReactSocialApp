@@ -5,8 +5,6 @@ import "datatables.net";
 import { fetchAllPosts, getPostError, getPostStatus } from "./postSlice";
 import DeletePostModal from "./DeletePostModal";
 import EditPostModal from "./EditPostModal";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const PostTable = () => {
   const dispatch = useDispatch();
@@ -16,6 +14,7 @@ const PostTable = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (status === "idle") {
@@ -52,11 +51,14 @@ const PostTable = () => {
     setShowEditModal(true);
   };
 
-  const handleDeleteClick = (post) => {
+  const openModal = (post) => {
+    setShowModal(true);
     setSelectedPost(post);
-    setShowDeleteModal(true);
+    // console.log("clicked");
   };
-
+  const closeModal = () => {
+    setShowModal(false);
+  };
   const handleCloseEditModal = () => {
     setShowEditModal(false);
     setSelectedPost(null);
@@ -104,14 +106,14 @@ const PostTable = () => {
                   >
                     <i className="bi bi-pencil-square"></i>
                   </button>{" "}
-                  {/* <button
-                    onClick={() => handleDeleteClick(post)}
+                  <button
+                    onClick={() => openModal(post)}
                     className="btn btn-outline-danger h-25"
                     data-bs-toggle="modal"
                     data-bs-target="#deleteModal"
                   >
                     <i className="bi bi-trash-fill"></i>
-                  </button> */}
+                  </button>
                 </td>
               </tr>
             ))}
@@ -119,17 +121,14 @@ const PostTable = () => {
         </table>
       </div>
       {showEditModal && (
-        <EditPostModal
-          post={selectedPost}
-          handleClose={handleCloseEditModal}
-        />
+        <EditPostModal post={selectedPost} handleClose={handleCloseEditModal} />
       )}
-      {showDeleteModal && (
-        <DeletePostModal
-          post={selectedPost}
-          handleClose={handleCloseDeleteModal}
-        />
-      )}
+
+      <DeletePostModal
+        post={selectedPost}
+        show={showModal}
+        handleClose={closeModal}
+      />
     </>
   );
 };
