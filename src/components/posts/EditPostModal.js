@@ -35,7 +35,7 @@ const EditPostModal = ({ post, handleClose }) => {
         setTitle("");
         setContent("");
         handleClose();
-        navigate(`/post/${post.id}`);
+        navigate(`/post/post-table`);
         toast.success("Post updated successfully!");
       } catch (error) {
         console.error("Failed to update the post", error);

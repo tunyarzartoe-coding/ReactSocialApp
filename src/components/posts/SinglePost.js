@@ -37,18 +37,15 @@ const SinglePost = () => {
             <p className="excerpt">{post.body.substring(0, 100)}</p>
 
             <div className="postCredit d-flex justify-content-between mb-2">
-              <Link to="#" onClick={handleEditClick} className="text-white">
+              {/* <Link to="#" onClick={handleEditClick} className="text-white">
                 <i className="bi bi-pencil-square"></i>
-              </Link>
+              </Link> */}
               <TimeAgo date={post.date} />
             </div>
             <ReactionButtons post={post} />
           </div>
         </article>
       </div>
-      {showModal && (
-        <EditPostModal post={post} handleClose={handleCloseModal} />
-      )}
     </div>
   );
 };

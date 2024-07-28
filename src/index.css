@@ -100,7 +100,9 @@ textarea {
     cursor: "pointer";
     color : white;
 }
-.delete-modal,.user-table{
+.delete-modal,.user-table,.post-talbe{
+  border-radius: 0.5rem;
   background: linear-gradient(65deg,#101841,#202b60);
   box-shadow: "0px 5px 10px rgba(0,0,0,0.25)";
+  margin-bottom: 3rem;
 }
