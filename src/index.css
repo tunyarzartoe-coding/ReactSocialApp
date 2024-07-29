@@ -106,3 +106,15 @@ textarea {
   box-shadow: "0px 5px 10px rgba(0,0,0,0.25)";
   margin-bottom: 3rem;
 }
+.main-navbar{
+  color: #c6c6c6;
+}
+.nav-link.active {
+  border-radius: 0.5rem !important;
+  background-color: #202b60 !important;
+  color: #fff !important;
+}
+
+.offcanvas{
+  width: 200px !important;
+}
