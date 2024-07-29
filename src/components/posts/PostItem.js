@@ -5,6 +5,7 @@ import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
 import { deletePost } from "./postSlice";
 import { toast, ToastContainer } from "react-toastify";
+import PostAuthor from "../users/PostAuthor";
 
 const PostItem = ({ post }) => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const PostItem = ({ post }) => {
               <Link to={`/post/${post.id}`} className="text-white">
                 View Post
               </Link>
-              {/* <PostAuthor post={post} /> */}
+              <PostAuthor post={post} />
               <TimeAgo date={post.date} />
             </div>
             <ReactionButtons post={post} />

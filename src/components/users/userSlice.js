@@ -37,6 +37,7 @@ export const fetchAllUsers = (state) => state.users.users;
 
 export const getUserById = (state, userId) =>
   state.users.users.find((user) => user.id === userId);
+
 export const getUserStatus = (state) => state.users.status;
 export const getUserError = (state) => state.users.error;
 

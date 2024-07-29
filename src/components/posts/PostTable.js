@@ -5,6 +5,7 @@ import "datatables.net";
 import { fetchAllPosts, getPostError, getPostStatus } from "./postSlice";
 import DeletePostModal from "./DeletePostModal";
 import EditPostModal from "./EditPostModal";
+import AddPostModal from "./AddPostModal";
 
 const PostTable = () => {
   const dispatch = useDispatch();
@@ -123,7 +124,7 @@ const PostTable = () => {
       {showEditModal && (
         <EditPostModal post={selectedPost} handleClose={handleCloseEditModal} />
       )}
-
+      <AddPostModal show={showModal} handleClose={closeModal} />
       <DeletePostModal
         post={selectedPost}
         show={showModal}
