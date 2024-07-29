@@ -8,7 +8,7 @@ import Select from "react-select";
 const AddPostModal = ({ show, handleClose }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [author, setAuthor] = useState(null); // Updated to be an object for react-select
+  const [author, setAuthor] = useState(null);
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
 
   const users = useSelector(fetchAllUsers);

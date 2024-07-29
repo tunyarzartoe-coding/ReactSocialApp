@@ -100,10 +100,10 @@ const PostTable = () => {
                 <td>{post.title}</td>
                 <td>{post.body}</td>
                 <td>{post.date}</td>
-                <td className="d-flex justify-content-between">
+                <td className="d-flex justify-content-end">
                   <button
                     onClick={() => handleEditClick(post)}
-                    className="btn btn-outline-primary h-25"
+                    className="btn btn-outline-primary me-2 h-25"
                   >
                     <i className="bi bi-pencil-square"></i>
                   </button>{" "}

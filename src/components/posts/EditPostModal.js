@@ -1,22 +1,43 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "./postSlice";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import Select from "react-select";
+import { fetchAllUsers } from "../users/userSlice";
 
 const EditPostModal = ({ post, handleClose }) => {
   const [title, setTitle] = useState(post?.title);
   const [content, setContent] = useState(post?.body);
+  const [author, setAuthor] = useState(null);
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const users = useSelector(fetchAllUsers);
+
+  useEffect(() => {
+    if (post?.userId && users.length > 0) {
+      const selectedUser = users.find((user) => user.id === post.userId);
+      setAuthor({
+        value: selectedUser.id,
+        label: selectedUser.name,
+      });
+    }
+  }, [post, users]);
+
   const onTitleChange = (e) => setTitle(e.target.value);
   const onContentChange = (e) => setContent(e.target.value);
+  const onAuthorChange = (selectedOption) => setAuthor(selectedOption);
+
+  const usersOption = users.map((user) => ({
+    value: user.id,
+    label: user.name,
+  }));
 
   const canUpdate =
-    [title, content].every(Boolean) && addRequestStatus === "idle";
+    [title, content, author].every(Boolean) && addRequestStatus === "idle";
 
   const onPostUpdate = async (event) => {
     event.preventDefault();
@@ -28,12 +49,14 @@ const EditPostModal = ({ post, handleClose }) => {
             id: post.id,
             title,
             body: content,
+            userId: author.value,
             reactions: post.reactions,
           })
         ).unwrap();
 
         setTitle("");
         setContent("");
+        setAuthor(null);
         handleClose();
         navigate(`/post/post-table`);
         toast.success("Post updated successfully!");
@@ -126,6 +149,23 @@ const EditPostModal = ({ post, handleClose }) => {
                         value={content}
                         onChange={onContentChange}
                         className="form-control"
+                      />
+                    </span>
+                  </div>
+                </div>
+                <div className="row pb-3">
+                  <div className="col-3 d-flex justify-content-between">
+                    <span className=" text-start ">Author</span>
+                    <span>:</span>
+                  </div>
+                  <div className="col-9">
+                    <span className="w-100">
+                      <Select
+                        className="w-100"
+                        id="postAuthor"
+                        value={author}
+                        onChange={onAuthorChange}
+                        options={usersOption}
                       />
                     </span>
                   </div>
