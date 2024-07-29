@@ -4,6 +4,7 @@ import { fetchAllUsers, getUserError, getUserStatus, getAllUsers } from './userS
 import $ from 'jquery';
 // import 'datatables.net-dt/css/jquery.dataTables.css';
 import 'datatables.net';
+import Loading from '../../tools/Loading';
 
 const UserTable = () => {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const UserTable = () => {
     }, [users, status]);
 
     if (status === 'loading') {
-        return <div>Loading...</div>;
+        return <div><Loading/></div>;
     }
 
     if (status === 'fail') {

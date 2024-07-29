@@ -6,6 +6,7 @@ import { fetchAllPosts, getPostError, getPostStatus } from "./postSlice";
 import DeletePostModal from "./DeletePostModal";
 import EditPostModal from "./EditPostModal";
 import AddPostModal from "./AddPostModal";
+import Loading from "../../tools/Loading";
 
 const PostTable = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const PostTable = () => {
   }, [posts, status]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div><Loading/></div>;
   }
 
   if (status === "fail") {

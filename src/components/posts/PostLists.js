@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { getPostStatus, getPostError, fetchAllPosts } from "./postSlice";
 import PostItem from "./PostItem";
+import Loading from "../../tools/Loading";
 
 const PostLists = () => {
   const status = useSelector(getPostStatus);
@@ -11,7 +12,7 @@ const PostLists = () => {
   let content;
 
   if (status === "loading") {
-    content = <p>Loading.....</p>;
+    content = <Loading/>;
   } else if (status === "success") {
     const orderedPostByDate = posts
       .slice()
