@@ -14,7 +14,7 @@ const SinglePost = () => {
 
   if (!post) {
     return (
-      <section>
+      <section className="not-found">
         <h2>Post Not Found!</h2>
       </section>
     );
