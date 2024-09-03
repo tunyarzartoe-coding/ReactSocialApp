@@ -43,7 +43,7 @@ const AddPostModal = ({ show, handleClose }) => {
     handleClose();
     setTitle("");
     setContent("");
-    setAuthor(null); 
+    setAuthor(null);
   };
 
   const onPostCreate = (event) => {
@@ -56,7 +56,7 @@ const AddPostModal = ({ show, handleClose }) => {
           addNewPost({
             title,
             body: content,
-            userId: author.value, 
+            userId: author.value,
           })
         ).unwrap();
         setTitle("");
@@ -131,6 +131,7 @@ const AddPostModal = ({ show, handleClose }) => {
                   <div className="col-9">
                     <span className="w-100">
                       <input
+                        placeholder="Enter Post Title"
                         type="text"
                         id="postTitle"
                         value={title}
@@ -148,6 +149,7 @@ const AddPostModal = ({ show, handleClose }) => {
                   <div className="col-9">
                     <span className="w-100">
                       <textarea
+                        placeholder="Enter Post Content"
                         id="postContent"
                         value={content}
                         onChange={onContentChange}
@@ -164,6 +166,7 @@ const AddPostModal = ({ show, handleClose }) => {
                   <div className="col-9">
                     <span className="w-100">
                       <Select
+                        placeholder="Select Author"
                         className="w-100"
                         id="postAuthor"
                         value={author}
