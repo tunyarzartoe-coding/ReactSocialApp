@@ -279,3 +279,6 @@ textarea {
   transform: translate(-50%, -50%);
   color: #eee;
 }
+.footer-text{
+  text-decoration: none;
+}
